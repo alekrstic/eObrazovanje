@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h3 class="modal-title">Profesor</h3>
+</div>
+<div class="modal-body">
+  <form>
+    <fieldset class="form-group">
+      <label for="ime">ime</label>
+      <input type="text" class="form-control" id="ime" ng-model="profesor.ime">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="prezime">prezime</label>
+      <input type="text" class="form-control" id="prezime" ng-model="profesor.prezime">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="uloga">uloga</label>
+      <input type="text" class="form-control" id="uloga" ng-model="profesor.uloga">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="mail">mail</label>
+      <input type="text" class="form-control" id="mail" ng-model="profesor.mail">
+    </fieldset>
+  </form>
+  <label for="predmeti">predmeti</label>
+    <table id="predmeti" class="table table-bordered">
+      <tr ng-repeat="enrollment in enrollments | orderBy : course.naziv">
+        <td>
+          {{enrollment.course.naziv}}
+        </td>
+      </tr>
+    </table>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="ok()">OK</button>
+  <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+</div>

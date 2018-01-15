@@ -1,0 +1,38 @@
+<div id="container" >
+<p><a href={{navUrl}} id='bigLink'>{{navStr}}</a></p>
+<div>
+  <h3>Evidencija kurseva</h3>
+</div>
+<br>
+<input type="text" ng-model="search" class="form-control" placeholder="Search" style="width: 301px">
+<br>
+<table class="table table-bordered">
+  <tr>
+    <th  ng-click="sort('naziv')">naziv<span class="glyphicon sort-icon" ng-show="sortKey=='naziv'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th>akcija</th>
+  </tr>
+  <tr ng-repeat="course in courses.data|orderBy:sortKey:reverse|filter:search">
+    <td>
+      {{course.naziv}}
+    </td>
+    <td>
+      <button type="button" class="btn btn-default" aria-label="Izmena" ng-click="openModal(course)">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+      </button>
+
+      <button type="button" class="btn btn-default" aria-label="Brisanje" ng-click="deleteCourse(course.id)">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+      
+      <a ng-href="#/courses/{{course.id}}">Detalji</a>
+      
+    </td>
+  </tr>
+</table>
+</div>
+<button type="button" ng-click="logout()" >Logout</button>
+<div id="ddj" class="right">
+  <button type="button" class="btn btn-default" aria-label="Dodavanje" ng-click="openModal()">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </button>
+</div>

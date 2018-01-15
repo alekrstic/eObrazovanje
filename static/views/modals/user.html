@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h3 class="modal-title">Korisnik</h3>
+</div>
+<div class="modal-body">
+  <form>
+    <fieldset class="form-group">
+      <label for="ime">ime</label>
+      <input type="text" class="form-control" id="ime" ng-model="user.ime">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="prezime">prezime</label>
+      <input type="text" class="form-control" id="prezime" ng-model="user.prezime">
+    </fieldset>
+     <fieldset class="form-group">
+      <label for="uloga">uloga</label>
+      <input type="text" class="form-control" id="uloga" ng-model="user.uloga">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="username">username</label>
+      <input type="text" class="form-control" id="username" ng-model="user.username">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="password">password</label>
+      <input type="text" class="form-control" id="password" ng-model="user.password">
+    </fieldset>
+  </form>    
+    <div class="right">
+</div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="ok()">OK</button>
+  <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+</div>

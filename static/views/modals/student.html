@@ -1,0 +1,50 @@
+<div class="modal-header">
+  <h3 class="modal-title">Student</h3>
+</div>
+<div class="modal-body">
+  <form>
+    <fieldset class="form-group">
+      <label for="brIndexa">broj indeksa</label>
+      <input type="text" class="form-control" id="brIndexa" ng-model="student.brIndexa">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="ime">ime</label>
+      <input type="text" class="form-control" id="ime" ng-model="student.ime">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="prezime">prezime</label>
+      <input type="text" class="form-control" id="prezime" ng-model="student.prezime">
+    </fieldset>
+     <fieldset class="form-group">
+      <label for="mail">mail</label>
+      <input type="text" class="form-control" id="mail" ng-model="student.mail">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="adresa">adresa</label>
+      <input type="text" class="form-control" id="adresa" ng-model="student.adresa">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="godina">godina</label>
+      <input type="text" class="form-control" id="godina" ng-model="student.godina">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="semestar">semestar</label>
+      <input type="text" class="form-control" id="semestar" ng-model="student.semestar">
+    </fieldset>
+  </form>
+  <label for="predmeti">kursevi</label>
+    <table id="predmeti" class="table table-bordered">
+      <tr ng-repeat="enrollment in enrollments | orderBy:'enrollment.course.naziv'">
+        <td>
+          {{enrollment.course.naziv}}
+        </td>
+      </tr>
+    </table>
+    
+    <div class="right">
+</div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="ok()">OK</button>
+  <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+</div>

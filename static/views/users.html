@@ -1,0 +1,48 @@
+<div id="container">
+<p><a href={{navUrl}} id='bigLink'>{{navStr}}</a></p>
+<div>
+  <h1>Evidencija korisnika</h1>
+</div>
+<br>
+<input type="text" ng-model="search" class="form-control" placeholder="Search" style="width: 301px; margin-bottom: 10px">
+
+<table class="table table-bordered">
+  <tr>
+    <th ng-click="sort('ime')">ime<span class="glyphicon sort-icon" ng-show="sortKey=='ime'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th ng-click="sort('prezime')">prezime<span class="glyphicon sort-icon" ng-show="sortKey=='prezime'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th ng-click="sort('uloga')">uloga<span class="glyphicon sort-icon" ng-show="sortKey=='uloga'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th ng-click="sort('username')">username<span class="glyphicon sort-icon" ng-show="sortKey=='username'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th>akcija</th>
+  </tr>
+  <tr ng-repeat="user in users.data |orderBy:sortKey:reverse | filter : search">
+    <td>
+      {{user.ime}}
+    </td>
+    <td>
+      {{user.prezime}}
+    </td>
+    <td>
+      {{user.uloga}}
+    </td>
+    <td>
+      {{user.username}}
+    </td>
+    <td>
+      <button type="button" class="btn btn-default" aria-label="Izmena" ng-click="openModal(user)">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+      </button>
+
+      <button type="button" class="btn btn-default" aria-label="Brisanje" ng-click="deleteUser(user.id)">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+    </td>
+  </tr>
+</table>
+</div>
+<button type="button" ng-click="logout()" >Logout</button>
+<div class="right" id="ddj">
+  <button type="button" class="btn btn-default" aria-label="Dodavanje" ng-click="openModal()">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </button>
+</div>
+

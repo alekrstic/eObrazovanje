@@ -1,0 +1,16 @@
+<div id="detalji">
+<p><a href='#/uplate' id='bigLink'><-- Nazad na evidenciju uplata</a></p>
+<div id="student">
+  <h3>Uplata</h3>
+	 <p>Datum uplate: {{uplata.datumUplate | date:'dd-MM-yyyy'}}</p>
+	 <p>Svrha uplate: {{uplata.svrhaUplate}}</p>
+	 <p>Iznos uplate: {{uplata.iznosUplate}}</p>
+	 </div>
+	 <div id="kurs">
+	 <h3>Studenti</h3>
+	 <tr ng-repeat="uplata in uplatestudenata | orderBy:'student.brIndexa'">
+	 <td>{{uplata.student.brIndexa}} {{uplata.student.ime}} {{uplata.student.prezime}}</td>
+	 </tr>
+	 </div>
+</div>
+<button type="button" ng-click="logout()" >Logout</button>

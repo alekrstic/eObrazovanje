@@ -1,0 +1,51 @@
+<div id="container">
+<div>
+  <h3>Ispiti</h3>
+</div>
+<table class="table table-bordered">
+  <tr>
+	<th>ime</th>
+    <th>prezime</th>
+	<th>kurs</th>
+	<th>polozen</th>
+    <th>ocena</th>
+    <th>akcija</th>
+  </tr>
+  <tr ng-repeat="exam in exams | orderBy:'exam.student.ime'">
+    <td>
+      {{exam.student.ime}}
+    </td>
+    <td>
+      {{exam.student.prezime}}
+    </td>
+	<td>
+		{{exam.course.naziv}}
+	</td>
+	 <td>
+      {{exam.polozen}}
+    </td>
+    <td>
+      {{exam.ocena}}
+    </td>
+    <td>
+      <button type="button" class="btn btn-default" aria-label="Izmena" ng-click="openModal(exam)">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+      </button>
+
+      <button type="button" class="btn btn-default" aria-label="Brisanje" ng-click="deleteExam(exam.id)">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+      
+      <a ng-href="#/exams/{{exam.id}}">Detalji ispita</a>
+      
+    </td>
+  </tr>
+</table>
+<p><a href={{navUrl}} id='bigLink'>{{navStr}}</a></p>
+</div>
+<button type="button" ng-click="logout()" >Logout</button>
+<div class="right" id="ddj">
+  <button type="button" class="btn btn-default" aria-label="Dodavanje" ng-click="openModal()">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </button>
+</div>

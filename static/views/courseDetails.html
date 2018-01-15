@@ -1,0 +1,21 @@
+<div id="detalji">
+<p><a href='#/courses' id='bigLink'><-- Nazad na evidenciju kurseva</a></p>
+	<div id="student">
+		<h3>Kurs</h3>
+	 	<p>Naziv kursa: {{course.naziv}}</p>
+	</div>
+	 	
+	<div id="kurs">
+		<h3>Studenti</h3>
+  		<p ng-repeat="enrollment in enrollments | orderBy:'student.brIndexa'">{{enrollment.student.brIndexa}} {{enrollment.student.ime}} {{enrollment.student.prezime}}</p>
+	</div>
+	
+	<div id='uplata'>
+		<h3>Profesori</h3>
+		<p><p ng-repeat="profesor in profesors | orderBy:'profesor.ime'">{{profesor.profesor.ime}} {{profesor.profesor.prezime}}</p></p>
+	</div>
+	
+</div>
+<button type="button" ng-click="logout()" >Logout</button>
+
+

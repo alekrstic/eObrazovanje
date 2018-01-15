@@ -1,0 +1,57 @@
+<div id="container">
+<p><a href={{navUrl}} id='bigLink'>{{navStr}}</a></p>
+<div>
+  <h3>Uplate studenata</h3>
+</div>
+<table class="table table-bordered">
+  <tr>
+    <th>ime</th>
+    <th>prezime</th>
+    <th>broj indeksa</th>
+    <th>datum uplate</th>
+    <th>svrha uplate</th>
+    <th>iznos uplate</th>
+    <th>akcija</th>
+  </tr>
+  <tr ng-repeat="uplata in uplatestudenata">
+    <td>
+      {{uplata.student.ime}}
+    </td>
+    <td>
+      {{uplata.student.prezime}}
+    </td>
+    <td>
+      {{uplata.student.brIndexa}}
+    </td>
+    <td>
+      {{uplata.datumUplate | date:'yyyy-MM-dd'}}
+    </td>
+    <td>
+      {{uplata.svrhaUplate}}
+    </td>
+    <td>
+      {{uplata.iznosUplate}}
+    </td>	
+    <td>
+    
+    <button type="button" class="btn btn-default" aria-label="Izmena" ng-click="openModal(uplata)">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+      </button>
+	
+	
+	<button type="button" class="btn btn-default" aria-label="Brisanje" ng-click="deleteUplata(uplata.id)">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+      
+     <a ng-href="#/uplate/{{uplata.id}}">Detalji</a>
+    </td>
+    
+  </tr>
+</table>
+<button type="button" ng-click="logout()" >Logout</button>
+</div>
+<div class="right" id='ddj'>
+  <button type="button" class="btn btn-default" aria-label="Dodavanje" ng-click="openModal(uplata)">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </button>
+</div>

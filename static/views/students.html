@@ -1,0 +1,72 @@
+<div id="container">
+<p><a href={{navUrl}} id='bigLink'>{{navStr}}</a></p>
+<div>
+  <h1>Evidencija studenata</h1>
+</div>
+<br>
+<div id="desno">
+	<div id="desno2">
+		<ul>
+			<li><a href="#/courses">Kursevi</a></li>
+			<li><a href="#/exams">Ispiti</a></li>
+			<li><a href="#/uplate">Uplate</a></li>
+		</ul>
+	</div>
+</div>
+<input type="text" ng-model="search" class="form-control" placeholder="Search" style="width: 301px">
+
+<table class="table table-bordered">
+  <tr>
+    <th ng-click="sort('brIndexa')">indeks<span class="glyphicon sort-icon" ng-show="sortKey=='brIndexa'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th ng-click="sort('ime')">ime<span class="glyphicon sort-icon" ng-show="sortKey=='ime'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th ng-click="sort('prezime')">prezime<span class="glyphicon sort-icon" ng-show="sortKey=='prezime'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th ng-click="sort('mail')">mail<span class="glyphicon sort-icon" ng-show="sortKey=='mail'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th ng-click="sort('adresa')">adresa<span class="glyphicon sort-icon" ng-show="sortKey=='adresa'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th ng-click="sort('godina')">godina<span class="glyphicon sort-icon" ng-show="sortKey=='godina'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th ng-click="sort('semestar')">semestar<span class="glyphicon sort-icon" ng-show="sortKey=='semestar'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+    <th>akcija</th>
+  </tr>
+  <tr ng-repeat="student in students.data |orderBy:sortKey:reverse | filter : search">
+    <td>
+      {{student.brIndexa}}
+    </td>
+    <td>
+      {{student.ime}}
+    </td>
+    <td>
+      {{student.prezime}}
+    </td>
+    <td>
+      {{student.mail}}
+    </td>
+    <td>
+      {{student.adresa}}
+    </td>
+    <td>
+      {{student.godina}}
+    </td>
+    <td>
+      {{student.semestar}}
+    </td>
+    <td>
+      <button type="button" class="btn btn-default" aria-label="Izmena" ng-click="openModal(student)">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+      </button>
+
+      <button type="button" class="btn btn-default" aria-label="Brisanje" ng-click="deleteStudent(student.id)">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+      
+      <a ng-href="#/students/{{student.id}}">Detalji</a>
+      
+    </td>
+  </tr>
+</table>
+</div>
+<button type="button" ng-click="logout()" >Logout</button>
+<div class="right" id="ddj">
+  <button type="button" class="btn btn-default" aria-label="Dodavanje" ng-click="openModal()">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </button>
+</div>
+

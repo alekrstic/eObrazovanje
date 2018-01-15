@@ -1,0 +1,15 @@
+<div id="detalji">
+<p><a href='#/profesors' id='bigLink'><-- Nazad na evidenciju profesora</a></p>
+	<div id="student">
+		<h3>Profesor</h3>
+	 	<p>Ime: {{profesor.ime}}</p>
+	 	<p>Prezime: {{profesor.prezime}}</p>
+	 	<p>Uloga: {{profesor.uloga}}</p>
+	 	<p>Mail: {{profesor.mail}}</p>
+	</div>
+  <div id="kurs">
+  	  <h3>Kursevi profesora</h3>
+  	  <p ng-repeat="enrollment in enrollments">{{enrollment.course.naziv}}</p>
+  </div>
+</div>
+<button type="button" ng-click="logout()" >Logout</button>

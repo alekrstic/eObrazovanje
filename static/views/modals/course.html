@@ -1,0 +1,50 @@
+<div class="modal-header">
+  <h3 class="modal-title">Kurs</h3>
+</div>
+<div class="modal-body">
+  <form>
+    <fieldset class="form-group">
+      <label for="name">naziv</label>
+      <input type="text" class="form-control" id="naziv" ng-model="course.naziv">
+    </fieldset>
+  </form>
+  <!-- Studenti -->
+  <label for="students">students</label>
+    <table id="students" class="table table-bordered">
+      <tr ng-repeat="enrollment in enrollments | orderBy:'student.brIndexa'">
+        <td>
+          {{enrollment.student.ime}} {{enrollment.student.prezime}} {{enrollment.student.brIndexa}}
+          <button type="button" class="btn btn-default right" aria-label="Brisanje" ng-click="deleteEnrollment(enrollment.id)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+        </td>
+      </tr>
+    </table>
+    <span class="right">
+      <button type="button" class="btn btn-default" aria-label="Dodavanje"  ng-click="openModal(course)">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+    </span>
+    
+    <!-- Profesori -->
+    <label for="students">profesors</label>
+    <table id="profesors" class="table table-bordered">
+      <tr ng-repeat="predajePredmet in predajePredmete">
+        <td>
+          {{predajePredmet.profesor.ime}} {{predajePredmet.profesor.prezime}} {{predajePredmet.profesor.uloga}}
+          <button type="button" class="btn btn-default right" aria-label="Brisanje" ng-click="deletePredajePredmet(predajePredmet.id)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+        </td>
+      </tr>
+    </table>
+    <span class="right">
+      <button type="button" class="btn btn-default" aria-label="Dodavanje"  ng-click="openModalProfesor(course)">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+    </span>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="ok()">OK</button>
+  <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+</div>

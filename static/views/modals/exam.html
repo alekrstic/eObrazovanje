@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h3 class="modal-title">Ispit</h3>
+</div>
+<div class="modal-body">
+  <form>
+  <label for="students">Student</label>
+  <select id="students" class="form-control" ng-model="student" ng-options="s.ime + ' ' + s.prezime + ' ' + s.brIndexa for s in students"></select>
+  <label for="courses">Course</label>
+  <select id="courses" class="form-control" ng-model="course" ng-options="c.naziv for c in courses"></select>
+    <fieldset class="form-group">
+      <label for="polozen">polozen</label>
+	  <select id="polozen" ng-model="exam.polozen"> 
+		<option value="true">Da</option>
+		<option value="false">Ne</option>
+	  </select>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="ocena">ocena</label>
+	  <select id="ocena" ng-model="exam.ocena">
+	    <option value="6">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+	  </select>
+    </fieldset>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="ok()">OK</button>
+  <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+</div>

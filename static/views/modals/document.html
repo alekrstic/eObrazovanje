@@ -1,0 +1,34 @@
+<div class="modal-header">
+  <h3 class="modal-title">Dokument</h3>
+</div>
+<div class="modal-body">
+  	<form>
+  	 <fieldset class="form-group">
+        <label>{{student.ime}} {{student.prezime}} {{student.brIndexa}}</label>
+      </fieldset>
+      <br>
+  	
+  	  <fieldset class="form-group">
+        <label for="naziv" translate>Naziv dokumenta</label>
+        <input type="text" class="form-control" id="naziv" ng-model="document.file.name" disabled="disabled">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="tip" translate>Tip dokumenta</label>
+        <input type="text" class="form-control" id="tip" ng-model="document.file.type" disabled="disabled">
+      </fieldset>
+      
+      
+      <fieldset class="form-group">
+    	<label for="inputFile" translate>Dodaj dokument</label>
+    	<input type="file" id="inputFile" file-model="document.file">
+  	  </fieldset>
+  	  
+  	</form>
+  	
+  	
+  	
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="ok()">U redu</button>
+  <button class="btn btn-default" type="button" ng-click="cancel()">Otkazi</button>
+</div>

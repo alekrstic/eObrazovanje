@@ -1,0 +1,12 @@
+Projekat je kreiran kao Maven Project. 
+	Za ovo je potreban instaliran Maven sistem za upravljanje projektom - http://maven.apache.org/
+	Pored toga, potrebno je da je u Eclipse-u instaliran M2E Eclipse plugin (http://www.eclipse.org/m2e/). Najčešće je već instaliran ovaj plugin. 
+
+Kao group-id navedeno je ime paketa (rs.ac.uns.ftn.eo), a kao artifact-id ime projekta (students).
+
+U pom.xml fajlu su uneseni dependencies za spring boot i mysql. Snimanjem pom.xml fajla se instaliraju potrebni maven dependencies.
+
+Tomcat server ne treba da se instalira, Spring Boot ima ugrađen Tomcat server.
+
+Aplikacija se pokrece tako sto se pokrene main klasa rs.ac.uns.ftn.eobrazovanje.StudentsApplication.
+

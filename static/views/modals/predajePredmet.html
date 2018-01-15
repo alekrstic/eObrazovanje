@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h3 class="modal-title">Dodavanje profesora</h3>
+</div>
+<div class="modal-body-datepicker">
+  <label for="profesors">profesor</label>
+  <select id="profesors" class="form-control" ng-model="profesor" ng-options="p.ime + ' ' + p.prezime + ' ' + p.uloga for p in profesors"></select>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="ok()">OK</button>
+  <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+</div>
